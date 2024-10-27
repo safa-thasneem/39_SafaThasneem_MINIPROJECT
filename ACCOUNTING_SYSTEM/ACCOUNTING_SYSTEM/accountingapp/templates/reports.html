@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Use flexbox for layout */
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            padding: 15px;
+            height: 100vh; /* Full height */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            display: block;
+            color: #f2f2f2;
+            padding: 10px;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Main content styling */
+        .main-content {
+            flex-grow: 1; /* Allow main content to take remaining space */
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            margin: 10px 0; /* Margin for better spacing */
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #555;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .summary {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+        }
+
+        .summary p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .summary p span {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Accounting System</h2>
+        <a href="{% url 'dashboard' %}">Home</a>
+        <a href="{% url 'sales_report_view' %}">Sales Report</a>
+        <a href="{% url 'purchase_report_view' %}">Purchase Report</a>
+        <a href="{% url 'profit_loss_report' %}">Profit_loss Report</a>
+
+        <a href="">About Us</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="container">
+            <h1>Reports</h1>
+            <p>Select a report  to view the details.</p>
+
+            <!-- Buttons to select the reports -->
+<!--            <a href="{% url 'sales_report_view' %}" class="btn">Sales Report</a>-->
+<!--            <a href="{% url 'purchase_report_view' %}" class="btn">Purchase Report</a>-->
+
+            <!-- Display reports here -->
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>
